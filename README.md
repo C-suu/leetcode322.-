@@ -55,7 +55,7 @@ class Solution:
 
 1.  `class Solution:`：定义一个名为 `Solution` 的执行类，符合 LeetCode 的标准提交格式。
 2.  `def coinChange(self, coins: List[int], amount: int) -> int:`：定义核心函数，接收参数 `coins`（整数列表，代表各种硬币的面额）和 `amount`（整数，代表需要凑出的目标总金额），声明函数返回值类型为整数 `int`。
-3.  `f = [0] + [inf] * amount`：建立动态规划的基础数组 `f`。该数组总长度为 `amount + 1`，索引范围从 `0` 对应到 `amount`。首个元素 `f[0]` 设置为 `0`（达成金额0需要0枚硬币）。其后拼接 `amount` 个正无穷 `inf`（在 Python 中，通过 `math.inf` 表示，此处假设已被引入或属于系统预设环境），表示除了金额 `0` 之外，其他金额暂无可用方案。
+3.  `f = [0] + [inf] * amount`：建立动态规划的基础数组 `f`。该数组总长度为 `amount + 1`，索引范围从 `0` 对应到 `amount`。首个元素 `f[0]` 设置为 `0`（达成金额0需要0枚硬币）。其后拼接 `amount` 个正无穷 `inf`，表示除了金额 `0` 之外，其他金额暂无可用方案。
 
 ```python
 f = [0] + [inf] * amount 这个啥意思？能不能给一个具体的数值算例，告诉f长什么样子？是什么维？
