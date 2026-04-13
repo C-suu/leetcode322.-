@@ -34,12 +34,14 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         # 创建并初始化动态规划数组，长度为 amount + 1，除 f[0] 外均设为无穷大
+        # 对于其他未知金额，初期统一假定为无穷大inf，代表尚未找到凑齐的方案
         f = [0] + [inf] * amount
         # 外层循环：逐一遍历给定的每一种面值的硬币
         for x in coins:
             # 内层循环：遍历所有可能使用该硬币的金额区间（从硬币面额自身一直到总金额）
             for c in range(x, amount + 1):
                 # 状态转移方程：在“原有最少硬币数”和“使用一枚当前硬币后的硬币数”中取最小值
+                # f[c] 代表凑出金额 c 所需的最少硬币个数
                 f[c] = min(f[c], f[c - x] + 1)
         # 提取数组最后一位，即为凑成目标金额的最少硬币数
         ans = f[amount]
